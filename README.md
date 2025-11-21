@@ -20,16 +20,29 @@ The **Spotify Music Platform** is a web-based music streaming application that a
 📁 spotify/
 │
 ├── 📁 node_modules/ # Installed npm packages
+
 ├── 📁 public/ # Public assets like images and favicon
+
 ├── 📁 src/
+
 │ ├── 📁 assets/ # Images, icons, and other static assets
+
 │ ├── 📁 Components/ # Reusable React components
+
 │ │ └── 📄 Sidebar.jsx # Sidebar navigation component
+
 │ ├── 📄 App.jsx # Main application component
+
 │ ├── 📄 index.css # Global CSS styling
+
 │ └── 📄 main.jsx # Entry point of the React application
+
 ├── 📄 .gitignore # Git ignore rules
+
 ├── 📄 package-lock.json # NPM package lock file
+
 ├── 📄 package.json # Project dependencies and scripts
+
 ├── 📄 vite.config.js # Vite configuration file
+
 └── 📄 README.md # Project documentation
