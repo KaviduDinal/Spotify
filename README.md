@@ -1,16 +1,35 @@
-# React + Vite
+# Spotify Music Platform 🎵
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
+The **Spotify Music Platform** is a web-based music streaming application that allows users to browse, play, and manage music tracks seamlessly. Built using **React** with **Vite**, this project aims to provide a responsive and interactive user interface similar to popular music streaming platforms.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Responsive Sidebar Navigation** for easy access to playlists, albums, and library.
+- **Music Playback Controls** including play, pause, skip, and volume control.
+- **Search Functionality** to find tracks, artists, or albums quickly.
+- **Asset Management** with organized folders for images, icons, and audio files.
+- **Modern UI** using CSS modules and custom styling for a clean look.
+- **Lightweight and Fast** thanks to Vite as the build tool.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📁 spotify/
+│
+├── 📁 node_modules/ # Installed npm packages
+├── 📁 public/ # Public assets like images and favicon
+├── 📁 src/
+│ ├── 📁 assets/ # Images, icons, and other static assets
+│ ├── 📁 Components/ # Reusable React components
+│ │ └── 📄 Sidebar.jsx # Sidebar navigation component
+│ ├── 📄 App.jsx # Main application component
+│ ├── 📄 index.css # Global CSS styling
+│ └── 📄 main.jsx # Entry point of the React application
+├── 📄 .gitignore # Git ignore rules
+├── 📄 package-lock.json # NPM package lock file
+├── 📄 package.json # Project dependencies and scripts
+├── 📄 vite.config.js # Vite configuration file
+└── 📄 README.md # Project documentation
