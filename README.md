@@ -1,6 +1,5 @@
 # Spotify Music Platform 🎵
 
-
 ## Project Overview
 The **Spotify Music Platform** is a web-based music streaming application that allows users to browse, play, and manage music tracks seamlessly. Built using **React** with **Vite**, this project aims to provide a responsive and interactive user interface similar to popular music streaming platforms.
 
