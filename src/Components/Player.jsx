@@ -10,7 +10,9 @@ const Player = () => {
         <p>{songsData[0].name}</p>
         <p>{songsData[0].desc}</p>
     </div>
+    
   )
 }
+
 
 export default Player
