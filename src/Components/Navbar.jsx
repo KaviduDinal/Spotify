@@ -8,15 +8,13 @@ const Navbar = () => {
         <div className='flex items-center gap-2'>
           <img className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_left} alt="Previous" />
           <img className='w-8 bg-black p-2 rounded-2xl cursor-pointer' src={assets.arrow_right} alt="Next" />
-
-        </div>
-        <div className='flex items-center gap-2'>
-          <p className='bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer'>Explore New</p>
-          <p className='bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer'>Install Apps</p>
-          <p className='bg-purple-500 text-black w-7 h-7 rounded-full flex items-center justify-center'>K</p>
-
         </div>
 
+        <div className='flex items-center gap-3'>
+          <button className='px-3 py-1 bg-white text-black rounded-full text-sm font-medium hover:opacity-90'>Explore Premium</button>
+          <button className='px-3 py-1 bg-black text-white border border-gray-700 rounded-full text-sm'>Install App</button>
+          <div className='bg-purple-500 text-white w-7 h-7 rounded-full flex items-center justify-center'>G</div>
+        </div>
       </div>
       <div className='flex items-center gap-2 mt-4'>
       <p className='bg-white text-black px-4 py-1 rounded-2xl cursor-pointer'>All</p>  
