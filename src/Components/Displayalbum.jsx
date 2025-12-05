@@ -5,7 +5,16 @@ import { albumsData, assets, songsData } from '../assets/assets';
 
 const Displayalbum = () => {
     const { id } = useParams();
-    const albumData = albumsData[id];
+    const albumData = albumsData.find(a => String(a.id) === String(id)) || albumsData[id] || null;
+
+    if (!albumData) {
+        return (
+            <>
+                <Navbar />
+                <div className="p-8 text-white">Album not found.</div>
+            </>
+        )
+    }
 
 
 
@@ -30,23 +39,29 @@ const Displayalbum = () => {
                     </p>
                 </div>
             </div>
-            <div className='grid grid-cols-3 gap-x-60 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]'>
-                <p><b className='mr-4'>#</b>Title</p>
-                <p>Album</p>
-                <p className='hidden sm:block'>Date Added</p>
-                     <img className='m-auto w-4' src={assets.clock_icon} alt="" />
+            <div className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 mt-10 mb-4 pl-2 text-[#a7a7a7] items-center'>
+                <div className='flex items-center'><b className='mr-4'>#</b>Title</div>
+                <div className='hidden sm:flex items-center'>Album</div>
+                <div className='hidden sm:block text-right'>Date Added</div>
+                <div className='flex justify-center sm:justify-end'><img className='w-4' src={assets.clock_icon} alt="" /></div>
             </div>
 
             <hr />
             {
                 songsData.map((item, index) => (
-                    <div key={index} className='grid grid-cols-3 sm:grid-cols-4 gap-x-20 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
+                    <div key={index} className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
 
-                        <p className='text-white'>
+                        <div className='flex items-center'>
                             <b className='mr-4 text-[#a7a7a7]'>{index + 1}</b>
-                            <img className='inline w-10 mr-5' src={item.image} alt="" />
-                            {item.name}
-                        </p>
+                            <img className='w-10 h-10 mr-3 object-cover rounded' src={item.image} alt={item.name} />
+                            <div className='flex flex-col min-w-0'>
+                                <span className='text-white truncate'>{item.name}</span>
+                                <span className='text-sm text-gray-400 hidden sm:block truncate'>{item.desc}</span>
+                            </div>
+                        </div>
+                        <div className='hidden sm:flex items-center truncate'>{albumData?.name}</div>
+                        <div className='hidden sm:block text-right'>{item.added ?? '5 days ago'}</div>
+                        <div className='text-right text-[#a7a7a7]'>{item.duration}</div>
                     </div>
                 ))
             }

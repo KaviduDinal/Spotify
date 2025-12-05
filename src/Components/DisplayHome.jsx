@@ -1,7 +1,7 @@
 import React from 'react'
 import { assets, albumsData, songsData } from '../assets/assets'
 import Navbar from './Navbar'
-import AlbumItem from './AlbumItem'
+import AlbumCard from './AlbumCard'
 import SongItem from './SongItem'
 
 const DisplayHome = () => {
@@ -12,7 +12,7 @@ const DisplayHome = () => {
         <h2 className='text-white text-2xl font-bold mb-4'>Featured Albums</h2>
         <div className='flex space-x-3 overflow-x-auto py-2 px-2'>
           {albumsData.map((item) => (
-            <AlbumItem key={item.id} image={item.image} name={item.name} desc={item.desc} id={item.id} />
+            <AlbumCard key={item.id} image={item.image} name={item.name} desc={item.desc} id={item.id} bgColor={item.bgColor} />
           ))}
         </div>
       </div>
