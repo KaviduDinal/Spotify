@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Navbar from './Navbar'
 import { useParams } from 'react-router-dom'
 import { albumsData, assets, songsData } from '../assets/assets';
+import PlayerContext from './PlayerContext';
 
 const Displayalbum = () => {
     const { id } = useParams();
     const albumData = albumsData.find(a => String(a.id) === String(id)) || albumsData[id] || null;
+    const { playWithId } = useContext(PlayerContext);
 
     if (!albumData) {
         return (
@@ -49,7 +51,7 @@ const Displayalbum = () => {
             <hr />
             {
                 songsData.map((item, index) => (
-                    <div key={index} className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
+                    <div onClick={()=>playWithId(item.id)} key={index} className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer'>
 
                         <div className='flex items-center'>
                             <b className='mr-4 text-[#a7a7a7]'>{index + 1}</b>
