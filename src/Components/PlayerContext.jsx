@@ -13,6 +13,8 @@ const PlayerContextProvider = (props) => {
     const [track,setTrack] = useState(songsData[0]);
     const [playStatus,setPlayStatus]= useState(false);
     const [progress,setProgress] = useState(0);
+    const [isLooping, setIsLooping] = useState(false);
+    const [isShuffling, setIsShuffling] = useState(false);
     const [time,setTime] =useState({
         currentTime:{
             second:0,
@@ -36,15 +38,41 @@ const PlayerContextProvider = (props) => {
         setPlayStatus(false);
     }
 
+    const setAndPlayTrack = (nextTrack) => {
+        setTrack(nextTrack);
+    }
+
+    const previous = () => {
+        const currentIndex = songsData.findIndex(s => String(s.id) === String(track.id));
+        if (currentIndex > 0) {
+            setAndPlayTrack(songsData[currentIndex - 1]);
+        }
+    }
+
+    const next = () => {
+        const currentIndex = songsData.findIndex(s => String(s.id) === String(track.id));
+        const total = songsData.length;
+        if (total === 0) return;
+
+        if (isShuffling && total > 1) {
+            let randomIndex = currentIndex;
+            // Ensure we pick a different track when possible
+            while (randomIndex === currentIndex) {
+                randomIndex = Math.floor(Math.random() * total);
+            }
+            setAndPlayTrack(songsData[randomIndex]);
+            return;
+        }
+
+        if (currentIndex >= 0 && currentIndex < total - 1) {
+            setAndPlayTrack(songsData[currentIndex + 1]);
+        }
+    }
+
     const playWithId =(id)=>{
         const found = songsData.find(s => String(s.id) === String(id));
-        const next = found || songsData[0];
-        setTrack(next);
-        if (audioRef.current) {
-            audioRef.current.src = next.file;
-            audioRef.current.play();
-            setPlayStatus(true);
-        }
+        const nextTrack = found || songsData[0];
+        setAndPlayTrack(nextTrack);
     }
 
     useEffect(() => {
@@ -71,10 +99,59 @@ const PlayerContextProvider = (props) => {
             setProgress(percent);
         }
 
+        audioEl.onended = () => {
+            if (!isLooping) {
+                next();
+            }
+        }
+
         return () => {
             audioEl.ontimeupdate = null;
+            audioEl.onended = null;
         }
-    }, [])
+    }, [isLooping, isShuffling, track])
+
+    // When the track changes via next/previous/playlist selection, force the new
+    // source into the audio element and auto-play (skipping the very first mount).
+    const didMountRef = useRef(false);
+    useEffect(() => {
+        const audioEl = audioRef.current;
+        if (!audioEl || !track) return;
+
+        audioEl.src = track.file;
+        audioEl.load();
+        audioEl.currentTime = 0;
+        audioEl.loop = isLooping;
+
+        if (seekBar.current) {
+            seekBar.current.style.width = '0%';
+        }
+        setProgress(0);
+        setTime((prev) => ({
+            ...prev,
+            currentTime: { second: 0, minute: 0 }
+        }));
+
+        if (!didMountRef.current) {
+            didMountRef.current = true;
+            return;
+        }
+
+        const playPromise = audioEl.play();
+        if (playPromise && playPromise.then) {
+            playPromise
+                .then(() => setPlayStatus(true))
+                .catch(() => setPlayStatus(false));
+        } else {
+            setPlayStatus(true);
+        }
+    }, [track])
+
+    useEffect(() => {
+        const audioEl = audioRef.current;
+        if (!audioEl) return;
+        audioEl.loop = isLooping;
+    }, [isLooping])
 
     const seekSong = (e) => {
         const audioEl = audioRef.current;
@@ -91,6 +168,9 @@ const PlayerContextProvider = (props) => {
     }
 
 
+    const toggleLoop = () => setIsLooping((prev) => !prev);
+    const toggleShuffle = () => setIsShuffling((prev) => !prev);
+
     const contextValue = {
         audioRef,
         seekBg,
@@ -101,7 +181,12 @@ const PlayerContextProvider = (props) => {
         time,setTime,
         play,pause,
         seekSong,
-        playWithId
+        playWithId,
+        previous,next,
+        isLooping,
+        toggleLoop,
+        isShuffling,
+        toggleShuffle
     }
     return(
 
