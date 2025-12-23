@@ -14,7 +14,6 @@ The **Spotify Music Platform** is a web-based music streaming application that a
 
 ---
 
-
 ## Project Structure
 
 📁 spotify/
