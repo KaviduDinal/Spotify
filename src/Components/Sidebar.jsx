@@ -23,7 +23,7 @@ const Sidebar = () => {
 
         {/* Explore Premium CTA at bottom */}
         <div className="mt-auto">
-          <div className="px-3 py-2 bg-gradient-to-r from-[#1DB954] to-[#1ed760] text-black rounded-full font-semibold text-sm cursor-pointer hover:opacity-90 text-center">
+          <div onClick={() => navigate('/premium')} className="px-3 py-2 bg-gradient-to-r from-[#1DB954] to-[#1ed760] text-black rounded-full font-semibold text-sm cursor-pointer hover:opacity-90 text-center">
             Explore Premium
           </div>
         </div>
