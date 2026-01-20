@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../Auth/firebase'
 import * as assetsModule from '../assets/assets'
+import { useSearchModal } from './SearchModalContext'
 const assets = (assetsModule && (assetsModule.assets ?? assetsModule.default ?? assetsModule)) || {}
 
 const Sidebar = () => {
 
   const navigate = useNavigate();
+  const { openSearch } = useSearchModal()
   const handleLogout = async () => {
     await signOut(auth)
     navigate('/login')
@@ -22,7 +24,7 @@ const Sidebar = () => {
           <p className="font-bold text-sm">Home</p>
         </div>
 
-        <div className="flex items-center gap-3 cursor-pointer">
+        <div onClick={openSearch} className="flex items-center gap-3 cursor-pointer">
           <img src={assets?.search_icon ?? ''} alt="Search" className="w-5 h-5" />
           <p className="font-bold text-sm">Search</p>
         </div>

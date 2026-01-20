@@ -6,15 +6,20 @@ import { BrowserRouter } from 'react-router-dom'
 import { PlayerContextProvider } from './Components/PlayerContext'
 import { ProfileModalProvider } from './Components/ProfileModalContext'
 import ProfileModal from './Components/ProfileModal'
+import { SearchModalProvider } from './Components/SearchModalContext'
+import SearchModal from './Components/SearchModal'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ProfileModalProvider>
-        <PlayerContextProvider>
-          <App />
-          <ProfileModal />
-        </PlayerContextProvider>
+        <SearchModalProvider>
+          <PlayerContextProvider>
+            <App />
+            <ProfileModal />
+            <SearchModal />
+          </PlayerContextProvider>
+        </SearchModalProvider>
       </ProfileModalProvider>
     </BrowserRouter>
   </React.StrictMode>
