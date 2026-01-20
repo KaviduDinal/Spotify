@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../Auth/firebase'
+import { useProfileModal } from './ProfileModalContext'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -12,6 +13,7 @@ const Navbar = () => {
     await signOut(auth)
     navigate('/login')
   }
+  const { openModal } = useProfileModal()
 
   return (
     <>
@@ -51,7 +53,7 @@ const Navbar = () => {
 
           {/* Profile */}
           <div
-            onClick={() => navigate('/home/profile')}
+            onClick={openModal}
             className='bg-purple-500 text-white w-7 h-7 rounded-full flex items-center justify-center cursor-pointer'
           >
             G
