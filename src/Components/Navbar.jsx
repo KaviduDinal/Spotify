@@ -15,7 +15,7 @@ const Navbar = () => {
         </div>
 
         <div className='flex items-center gap-3'>
-          <button className='px-3 py-1 bg-white text-black rounded-full text-sm font-medium hover:opacity-90'>Explore Premium</button>
+          <button onClick={() => navigate('/premium')} className='px-3 py-1 bg-white text-black rounded-full text-sm font-medium hover:opacity-90'>Explore Premium</button>
           <button className='px-3 py-1 bg-black text-white border border-gray-700 rounded-full text-sm'>Install App</button>
           <div className='bg-purple-500 text-white w-7 h-7 rounded-full flex items-center justify-center'>G</div>
         </div>
