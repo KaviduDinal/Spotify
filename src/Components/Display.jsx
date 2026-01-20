@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import DisplayHome from './DisplayHome'
 import Displayalbum from './Displayalbum'
 import Premium from './Premium'
-import Profile from './Profile'
 import { albumsData } from '../assets/assets'
 
 
@@ -30,7 +29,6 @@ const Display = () => {
         <Route index element={<DisplayHome />} />
         <Route path='album/:id' element={<Displayalbum />} />
         <Route path='premium' element={<Premium/>} />
-        <Route path='profile' element={<Profile/>} />
       </Routes>
     </div>
   )
