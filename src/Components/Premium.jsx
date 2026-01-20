@@ -1,4 +1,5 @@
 import React from 'react'
+import { cardAssets } from '../assets/assets'
 
 const PlanCard = ({badgeColor, badgeText, title, priceMain, priceSub, bullets, primaryText, primaryColor}) => {
   return (
@@ -80,8 +81,56 @@ const Premium = () => {
   return (
     <div className='w-full h-full text-white px-6 py-8'>
       <div className='max-w-6xl mx-auto'>
-        <h1 className='text-4xl font-extrabold mb-6'>Premium</h1>
-        <p className='text-gray-300 mb-8'>Choose the plan that fits you best.</p>
+        <div className='max-w-4xl mx-auto text-center mb-6'>
+          <h2 className='text-4xl font-extrabold text-gray-200 mb-2'>Listen without limits.</h2>
+          <p className='text-sm text-gray-400 mb-4'>Try 1 month of Premium Individual for LKR 0.</p>
+        </div>
+
+        {/* Experience the difference - feature comparison */}
+        <div className='max-w-3xl mx-auto text-center mb-8'>
+          <p className='text-gray-300 mb-4'>Experience the difference</p>
+          <p className='text-sm text-gray-400 mb-6'>Go Premium and enjoy full control of your listening. Cancel anytime.</p>
+
+          <div className='grid grid-cols-3 gap-4 text-sm text-gray-300 items-center'>
+            <div className='text-left'>
+              <div className='font-semibold mb-2 pb-2 border-b border-gray-700 w-full'>What you'll get</div>
+              <ul className='space-y-3'>
+                <li className='text-left'>Ad-free music listening</li>
+                <li className='text-left'>Download to listen offline</li>
+                <li className='text-left'>Play songs in any order</li>
+                <li className='text-left'>High audio quality</li>
+                <li className='text-left'>Listen with friends in real time</li>
+                <li className='text-left'>Organise listening queue</li>
+              </ul>
+            </div>
+
+            <div className='flex flex-col items-center'>
+              <div className='font-semibold mb-2 pb-2 border-b border-gray-700 w-full text-center'>Spotify's Free plan</div>
+              <ul className='space-y-3'>
+                <li className='text-gray-400'>—</li>
+                <li className='text-gray-400'>—</li>
+                <li className='text-gray-400'>—</li>
+                <li className='text-gray-400'>—</li>
+                <li className='text-gray-400'>—</li>
+                <li className='text-gray-400'>—</li>
+              </ul>
+            </div>
+
+            <div className='flex flex-col items-center'>
+              <div className='font-semibold mb-2 pb-2 border-b border-gray-700 w-full text-center'>Spotify's Premium plans</div>
+              <ul className='space-y-3'>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>Ad-free</span></li>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>Download</span></li>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>On-demand play</span></li>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>High quality</span></li>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>Listen with friends</span></li>
+                <li className='flex items-center gap-2'><span className='h-5 w-5 rounded-full bg-white text-black flex items-center justify-center text-xs'>✓</span> <span>Organise queue</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <PlanCard {...individual} />
@@ -91,6 +140,33 @@ const Premium = () => {
           {/* Family card placed under the Student card on medium+ screens */}
           <div className='md:col-start-2 md:row-start-2 w-full'>
             <PlanCard {...family} />
+          </div>
+        </div>
+
+        {/* Affordable plans intro - moved after plan cards */}
+        <div className='max-w-4xl mx-auto text-center mt-8 mb-8'>
+          <h2 className='text-2xl font-semibold mb-2'>Affordable plans for any situation</h2>
+          <p className='text-sm text-gray-400 mb-4'>Choose a Premium plan and listen to ad-free music without limits on your phone, speaker and other devices. Pay in various ways. Cancel anytime.</p>
+
+          <div className='flex items-center justify-center gap-3 mb-4'>
+            <img src={cardAssets.visa} alt='VISA' className='h-6' />
+            <img src={cardAssets.mastercard} alt='Mastercard' className='h-6' />
+            <img src={cardAssets.amex} alt='AMEX' className='h-6' />
+            <img src={cardAssets.paypal} alt='PayPal' className='h-6' />
+          </div>
+
+          <div className='flex items-start justify-center gap-8'>
+            <div className='text-left'>
+              <div className='font-semibold mb-2'>All Premium plans include</div>
+            </div>
+            <ul className='text-sm text-gray-300 space-y-2'>
+              <li className='flex items-center gap-2'>✓ Ad-free music listening</li>
+              <li className='flex items-center gap-2'>✓ Download to listen offline</li>
+              <li className='flex items-center gap-2'>✓ Play songs in any order</li>
+              <li className='flex items-center gap-2'>✓ High audio quality</li>
+              <li className='flex items-center gap-2'>✓ Listen with friends in real time</li>
+              <li className='flex items-center gap-2'>✓ Organise listening queue</li>
+            </ul>
           </div>
         </div>
       </div>

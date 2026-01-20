@@ -22,6 +22,10 @@ import arrow_right from './right_arrow.png'
 import arrow_left from './left_arrow.png'
 import spotify_logo from './spotify_logo.png'
 import clock_icon from './clock_icon.png'
+import visa from './cards/visa.png'
+import mastercard from './cards/mastercard.png'
+import amex from './cards/amex.png'
+import paypal_card from './cards/paypal .png'
 import img1 from './img1.jpg'
 import img2 from './img2.jpg'
 import img3 from './img3.jpg'
@@ -67,6 +71,14 @@ export const assets = {
     arrow_right,
     spotify_logo,
     clock_icon
+}
+
+// grouped card icons
+export const cardAssets = {
+    visa,
+    mastercard,
+    amex,
+    paypal: paypal_card
 }
 
 export const albumsData = [
