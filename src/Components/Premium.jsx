@@ -66,16 +66,32 @@ const Premium = () => {
     primaryColor: 'bg-amber-300'
   }
 
+  const family = {
+    badgeColor: 'bg-gray-800 text-white',
+    badgeText: 'Premium',
+    title: 'Family',
+    priceMain: 'LKR 1,269 / month',
+    priceSub: null,
+    bullets: ['Up to 6 Premium accounts', 'Parental controls for the plan manager', 'Cancel anytime', 'Subscribe or one-time payment'],
+    primaryText: 'Get Premium Family',
+    primaryColor: 'bg-slate-200'
+  }
+
   return (
     <div className='w-full h-full text-white px-6 py-8'>
       <div className='max-w-6xl mx-auto'>
         <h1 className='text-4xl font-extrabold mb-6'>Premium</h1>
         <p className='text-gray-300 mb-8'>Choose the plan that fits you best.</p>
 
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 items-start'>
           <PlanCard {...individual} />
           <PlanCard {...student} />
           <PlanCard {...duo} />
+
+          {/* Family card placed under the Student card on medium+ screens */}
+          <div className='md:col-start-2 md:row-start-2 w-full'>
+            <PlanCard {...family} />
+          </div>
         </div>
       </div>
     </div>
