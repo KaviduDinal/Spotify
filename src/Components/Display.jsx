@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import DisplayHome from './DisplayHome'
 import Displayalbum from './Displayalbum'
+import Premium from './Premium'
 import { albumsData } from '../assets/assets'
 
 
@@ -27,6 +28,7 @@ const Display = () => {
       <Routes>
         <Route path='/' element={<DisplayHome />} />
         <Route path='/album/:id' element={<Displayalbum />} />
+        <Route path='/premium' element={<Premium/>} />
       </Routes>
     </div>
   )

@@ -1,31 +1,41 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {songsData, assets} from '../assets/assets'
+import PlayerContext from './PlayerContext'  
+
 
 const Player = () => {
+const {track,seekBar,seekBg,playStatus,play,pause,time,progress,seekSong,previous,next,isLooping,toggleLoop,isShuffling,toggleShuffle}=useContext(PlayerContext);
+
+const formatTime = (m,s)=> `${m}:${String(s).padStart(2,'0')}`;
+
   return (
     <div className='fixed bottom-0 left-0 w-full h-16 bg-black flex items-center justify-start text-white px-4 z-50'>
         <div className='flex items-center gap-4'>
-            <img className='w-12 h-12 object-cover' src={songsData[0].image} alt={songsData[0].name} />
+            <img className='w-12 h-12 object-cover' src={track.image } alt={songsData[0].name} />
             <div className='flex flex-col'>
-                <p className='text-sm font-medium'>{songsData[0].name}</p>
-                <p className='text-xs text-gray-300'>{songsData[0].desc}</p>
+                <p className='text-sm font-medium'>{track.name}</p>
+                <p className='text-xs text-gray-300'>{track.desc}</p>
             </div>
         </div>
         <div className='flex flex-col items-center gap-1 m-auto'>
             <div className='flex gap-4'>
-                <img className='w-4 cursor-pointer' src={assets.shuffle_icon} alt="" />
-                <img className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
-                <img className='w-4 cursor-pointer' src={assets.play_icon} alt="" />
-                <img className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
-                <img className='w-4 cursor-pointer' src={assets.loop_icon} alt="" />
+                <img onClick={toggleShuffle} className={`w-4 cursor-pointer ${isShuffling ? 'opacity-100' : 'opacity-60'}`} src={assets.shuffle_icon} alt="Shuffle" />
+                <img onClick={previous} className='w-4 cursor-pointer' src={assets.prev_icon} alt="" />
+                {playStatus
+                ?<img onClick={pause} className='w-4 cursor-pointer' src={assets.pause_icon} alt="" />
+                :<img onClick={play} className='w-4 cursor-pointer' src={assets.play_icon} alt="" />
+            }
+                
+                <img onClick={next} className='w-4 cursor-pointer' src={assets.next_icon} alt="" />
+                <img onClick={toggleLoop} className={`w-4 cursor-pointer ${isLooping ? 'opacity-100' : 'opacity-60'}`} src={assets.loop_icon} alt="Loop" />
 
             </div>
             <div className='flex items-center gap-5'>
-                <p>1.06</p>
-                <div className='w-[40vw] max-w-[500px ] bg-gray-300 rounded-full cursor-pointer'>
-                    <hr className='h-1 border-none w-50 bg-green-800 ronded-full'/>
-                </div>
-                <p>3.45</p> 
+                <p>{formatTime(time.currentTime.minute,time.currentTime.second)}</p>
+                <div ref={seekBg}  onClick={seekSong} className='w-[40vw] max-w-[500px ] bg-gray-300 rounded-full cursor-pointer'>
+                    <div ref={seekBar} className='h-1 bg-green-800 rounded-full' style={{width:`${progress}%`}} />
+                </div>                                        
+                <p>{formatTime(time.totalTime.minute,time.totalTime.second)}</p> 
 
             </div>
         </div>
