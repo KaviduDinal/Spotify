@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-export default function ProtectedRoute({ children }) {
-  const [loading, setLoading] = useState(true);
+const ProtectedRoute = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (u) => {
@@ -15,7 +15,9 @@ export default function ProtectedRoute({ children }) {
     return () => unsubscribe();
   }, []);
 
-  if (loading) return null; // or a loader component
+  if (loading) return null;
 
   return user ? children : <Navigate to="/login" />;
-}
+};
+
+export default ProtectedRoute;

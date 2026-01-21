@@ -1,29 +1,84 @@
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from "./firebase"
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
+
+import {
+  bg,
+  artist1,
+  artist2,
+  artist3,
+  artist4,
+} from "../assets/auth/authImages";
 
 const Signup = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSignup = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
-      navigate("/home")   // ✅ REDIRECT
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate("/home", { replace: true });
     } catch (error) {
-      alert(error.code)
+      alert(error.code);
     }
-  }
+  };
 
   return (
-    <div>
-      <input placeholder="Email" onChange={e => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
-      <button onClick={handleSignup}>Signup</button>
-    </div>
-  )
-}
+    <div
+      className="relative h-screen w-full flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
+      <div className="absolute inset-0 bg-black/60"></div>
 
-export default Signup
+      <div className="relative z-10 w-[440px] rounded-2xl bg-black/70 px-10 py-12 text-white">
+
+        <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-4">
+          <img src={artist1} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
+          <img src={artist2} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
+          <img src={artist3} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
+          <img src={artist4} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
+        </div>
+
+        <h2 className="text-3xl font-bold text-center mt-8 mb-8">
+          Sign Up
+        </h2>
+
+        <div className="mb-5">
+          <label className="block text-sm mb-1 text-gray-300">Email Address</label>
+          <input
+            type="email"
+            className="w-full px-5 py-3 rounded-full bg-transparent border border-gray-500 focus:outline-none focus:border-[#1DB954]"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-8">
+          <label className="block text-sm mb-1 text-gray-300">Password</label>
+          <input
+            type="password"
+            className="w-full px-5 py-3 rounded-full bg-transparent border border-gray-500 focus:outline-none focus:border-[#1DB954]"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <button
+          onClick={handleSignup}
+          className="w-full py-3 bg-[#1DB954] text-black rounded-full font-semibold text-lg hover:opacity-90 transition"
+        >
+          Sign Up
+        </button>
+
+        <p
+          onClick={() => navigate("/login")}
+          className="text-center mt-6 text-sm text-gray-300 cursor-pointer hover:underline"
+        >
+          Already have an account? <span className="text-white font-semibold">Login</span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
