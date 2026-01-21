@@ -29,21 +29,20 @@ const Login = () => {
   return (
     <div
       className="relative h-screen w-full flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${bg})` }}
+      style={{ backgroundImage: `url(${bg})`, filter: "none", backdropFilter: "none" }}
     >
-      {/* overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      {/* animated singers behind the card */}
+      <div className="singers-anim">
+        <img src={artist1} alt="" className="singer singer-1" />
+        <img src={artist2} alt="" className="singer singer-2" />
+        <img src={artist3} alt="" className="singer singer-3" />
+        <img src={artist4} alt="" className="singer singer-4" />
+      </div>
 
       {/* card */}
       <div className="relative z-10 w-[440px] rounded-2xl bg-black/70 px-10 py-12 text-white">
 
-        {/* artists */}
-        <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex gap-4">
-          <img src={artist1} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
-          <img src={artist2} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
-          <img src={artist3} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
-          <img src={artist4} className="w-16 h-16 rounded-full object-cover border-2 border-black" />
-        </div>
+        {/* top avatars removed to keep animated circles behind the card */}
 
         <h2 className="text-3xl font-bold text-center mt-8 mb-8">
           Login

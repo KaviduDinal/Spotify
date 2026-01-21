@@ -28,9 +28,15 @@ const Signup = () => {
   return (
     <div
       className="relative h-screen w-full flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: `url(${bg})` }}
+      style={{ backgroundImage: `url(${bg})`, filter: "none", backdropFilter: "none" }}
     >
-      <div className="absolute inset-0 bg-black/60"></div>
+      {/* animated singers behind the card */}
+      <div className="singers-anim">
+        <img src={artist1} alt="" className="singer singer-1" />
+        <img src={artist2} alt="" className="singer singer-2" />
+        <img src={artist3} alt="" className="singer singer-3" />
+        <img src={artist4} alt="" className="singer singer-4" />
+      </div>
 
       <div className="relative z-10 w-[440px] rounded-2xl bg-black/70 px-10 py-12 text-white">
 

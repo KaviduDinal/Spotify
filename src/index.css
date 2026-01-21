@@ -24,3 +24,62 @@
 *::-webkit-scrollbar-thumb:hover {
 	background: #19a34a;
 }
+
+/* Animated singer circles behind auth cards */
+.singers-anim {
+	pointer-events: none;
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+	z-index: 0;
+}
+.singer {
+	position: absolute;
+	width: 140px;
+	height: 140px;
+	border-radius: 9999px;
+	object-fit: cover;
+	border: 6px solid rgba(0,0,0,0.65);
+	opacity: 0.98;
+	filter: drop-shadow(0 28px 40px rgba(0,0,0,0.65));
+	animation-timing-function: linear;
+}
+.singer-1 { left: 4%; top: 6%; animation: move1 18s infinite; }
+.singer-2 { right: 6%; top: 12%; animation: move2 22s infinite; }
+.singer-3 { left: 12%; bottom: 12%; animation: move3 20s infinite; }
+.singer-4 { right: 10%; bottom: 8%; animation: move4 24s infinite; }
+
+@keyframes move1 {
+	0%   { transform: translate(0,0) scale(1); }
+	25%  { transform: translate(120px,-60px) scale(1.05); }
+	50%  { transform: translate(0,120px) scale(0.95); }
+	75%  { transform: translate(-80px,-40px) scale(1.02); }
+	100% { transform: translate(0,0) scale(1); }
+}
+
+@keyframes move2 {
+	0%   { transform: translate(0,0) scale(1); }
+	25%  { transform: translate(-140px,80px) scale(1.03); }
+	50%  { transform: translate(40px,-120px) scale(0.96); }
+	75%  { transform: translate(90px,30px) scale(1.01); }
+	100% { transform: translate(0,0) scale(1); }
+}
+
+@keyframes move3 {
+	0%   { transform: translate(0,0) scale(1); }
+	20%  { transform: translate(80px,-40px) scale(1.02); }
+	40%  { transform: translate(140px,80px) scale(0.95); }
+	60%  { transform: translate(-60px,40px) scale(1.04); }
+	80%  { transform: translate(-100px,-80px) scale(0.98); }
+	100% { transform: translate(0,0) scale(1); }
+}
+
+@keyframes move4 {
+	0%   { transform: translate(0,0) scale(1); }
+	25%  { transform: translate(-60px,-100px) scale(1.04); }
+	50%  { transform: translate(120px,40px) scale(0.97); }
+	75%  { transform: translate(-40px,120px) scale(1.02); }
+	100% { transform: translate(0,0) scale(1); }
+}
+
+.singer.small { width: 96px; height: 96px; }
