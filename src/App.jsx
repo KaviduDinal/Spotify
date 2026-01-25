@@ -3,13 +3,14 @@ import Login from "./Auth/Login"
 import Signup from "./Auth/Signup"
 import ProtectedRoute from "./Auth/ProtectedRoute"
 import Home from "./Components/Home"
+import Landing from "./Components/Landing"
 
 const App = () => {
   return (
     <Routes>
 
-      {/* Default redirect */}
-      <Route path="/" element={<Navigate to="/home" />} />
+      {/* Landing page */}
+      <Route path="/" element={<Landing />} />
 
       {/* Auth pages */}
       <Route path="/login" element={<Login />} />
