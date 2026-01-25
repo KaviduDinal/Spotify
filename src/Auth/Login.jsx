@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -10,6 +10,8 @@ import {
   artist2,
   artist3,
   artist4,
+  google,
+  facebook,
 } from "../assets/auth/authImages";
 
 const Login = () => {
@@ -17,9 +19,30 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      navigate("/home", { replace: true });
+    } catch (error) {
+      alert(error.code);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      navigate("/home", { replace: true });
+    } catch (error) {
+      alert(error.code);
+    }
+  };
+
+  const handleFacebookLogin = async () => {
+    try {
+      await signInWithPopup(auth, facebookProvider);
       navigate("/home", { replace: true });
     } catch (error) {
       alert(error.code);
@@ -72,6 +95,24 @@ const Login = () => {
         >
           Login
         </button>
+
+        <div className="mt-6 space-y-3">
+          <button
+            onClick={handleGoogleLogin}
+            className="w-full py-3 bg-transparent border border-gray-500 text-white rounded-full font-semibold text-base hover:border-gray-400 transition flex items-center justify-center gap-3"
+          >
+            <img src={google} alt="Google" className="w-5 h-5" />
+            Continue with Google
+          </button>
+
+          <button
+            onClick={handleFacebookLogin}
+            className="w-full py-3 bg-transparent border border-gray-500 text-white rounded-full font-semibold text-base hover:border-gray-400 transition flex items-center justify-center gap-3"
+          >
+            <img src={facebook} alt="Facebook" className="w-5 h-5" />
+            Continue with Facebook
+          </button>
+        </div>
 
         <p
           onClick={() => navigate("/signup")}
