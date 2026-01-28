@@ -105,7 +105,7 @@ const Signup = () => {
 
         <button
           onClick={handleSignup}
-          className="w-full py-3 bg-[#1DB954] text-black rounded-full font-semibold text-lg hover:opacity-90 transition"
+          className="w-full py-3 bg-gradient-to-r from-[#6B1E23] to-[#2C0F12] text-white rounded-full font-semibold text-lg hover:shadow-lg transition shadow-[0_18px_26px_rgba(44,15,18,0.45)] border border-white/5"
         >
           Sign Up
         </button>
