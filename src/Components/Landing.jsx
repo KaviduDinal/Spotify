@@ -1,13 +1,16 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import landing from '../assets/landing.png'
 import watchSong from '../assets/cards/watch song-.png'
 import watchImg from '../assets/cards/Watch.png'
+import worldMap from '../assets/Map.png'
 
 const Landing = () => {
   const navigate = useNavigate()
 
   const containerRef = useRef(null)
+  const watchImgRef = useRef(null)
+  const watchSongRef = useRef(null)
 
   const scrollTo = (id) => {
     const el = document.getElementById(id)
@@ -18,25 +21,44 @@ const Landing = () => {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  useEffect(() => {
+    const els = [watchImgRef.current, watchSongRef.current].filter(Boolean)
+    if (!els.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
+        })
+      },
+      { threshold: 0.35 }
+    )
+
+    els.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div
       ref={containerRef}
-      className="relative min-h-screen overflow-y-auto bg-black bg-cover bg-center"
+      className="landing-headings relative min-h-screen overflow-y-auto bg-black bg-cover bg-center"
       style={{ backgroundImage: `url(${landing})`, filter: 'none' }}
     >
       {/* Navbar */}
       <header className="absolute inset-x-0 top-0 p-6 md:p-8 z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-end">
-          <nav className="hidden md:flex items-center gap-3 text-base text-cyan-200">
-            <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white py-1 px-2 transition">Home</button>
-            <button type="button" onClick={() => scrollTo('about')} className="hover:text-white py-1 px-2 transition">About</button>
-            <button type="button" onClick={() => scrollTo('plans')} className="hover:text-white py-1 px-2 transition">Service</button>
-            <button type="button" onClick={() => scrollTo('contact')} className="hover:text-white py-1 px-2 transition">Contact</button>
+          <nav className="hidden md:flex items-center gap-4 text-base text-cyan-200">
+            <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="hover:text-white py-1 px-3 transition">Home</button>
+            <button type="button" onClick={() => scrollTo('plans')} className="hover:text-white py-1 px-3 transition">Explore</button>
+            <button type="button" onClick={() => scrollTo('plans')} className="hover:text-white py-1 px-3 transition">Premium</button>
+            <button type="button" onClick={() => scrollTo('about')} className="hover:text-white py-1 px-3 transition">About</button>
+            <button type="button" onClick={() => scrollTo('contact')} className="hover:text-white py-1 px-3 transition">Contact</button>
+            <button type="button" onClick={() => navigate('/login')} className="bg-[#063B2B] text-white font-medium py-2 px-4 rounded-full shadow-sm hover:bg-[#0a6b48] transition">Log In</button>
           </nav>
 
-          <div className="flex items-center gap-3">
-            <button onClick={() => navigate('/login')} className="absolute right-4 top-4 md:right-6 md:top-6 inline-flex items-center gap-2 bg-[#063B2B] text-white font-medium px-3 py-3 rounded-full shadow-sm hover:bg-[#0a6b48] transition z-30">Log In</button>
-          </div>
+          <div className="flex items-center gap-3" />
         </div>
       </header>
 
@@ -45,84 +67,82 @@ const Landing = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent pointer-events-none z-10" />
 
         <div className="relative z-20 max-w-xl text-left">
-          <h1 className="hero-heading text-6xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-            <span className="block line whitespace-nowrap">
-              {"Your Favorite Artists.".split('').map((ch, i) => {
-                const idx = i
-                return (
-                  <span
-                    key={i}
-                    className="letter animate-letter"
-                    style={{ animationDelay: `${idx * 35}ms` }}
-                  >
-                    {ch === ' ' ? '\u00A0' : ch}
-                  </span>
-                )
-              })}
-            </span>
-
-            <span className="block line mt-2">
-              {"Your Perfect".split('').map((ch, i) => {
-                const idx = i + 40
-                return (
-                  <span
-                    key={i}
-                    className="letter animate-letter"
-                    style={{ animationDelay: `${idx * 35}ms` }}
-                  >
-                    {ch === ' ' ? '\u00A0' : ch}
-                  </span>
-                )
-              })}
-            </span>
-
-            <span className="block line mt-1">
-              {"Playlists.".split('').map((ch, i) => {
-                const idx = i + 80
-                return (
-                  <span
-                    key={i}
-                    className="letter animate-letter"Mobile pplans and 
-                    style={{ animationDelay: `${idx * 35}ms` }}
-                  >
-                    {ch === ' ' ? '\u00A0' : ch}
-                  </span>
-                )
-              })}
-            </span>
+          <h1 className="hero-heading text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 drop-shadow-[0_6px_18px_rgba(0,0,0,0.8)]">
+            <span className="block whitespace-normal text-4xl md:text-5xl lg:text-6xl lg:leading-tight animate-fade-up" style={{ animationDelay: '300ms' }}>Stream the Artists You Love.</span>
+            <span className="block mt-3 text-4xl md:text-5xl lg:text-6xl lg:leading-tight animate-fade-up" style={{ animationDelay: '420ms' }}>Build the Perfect Playlist.</span>
           </h1>
-          <p className="text-gray-300 text-lg mb-8">Anytime, anywhere.</p>
+           <p className="text-gray-200 text-lg mb-8 animate-fade-up" style={{ animationDelay: '540ms' }}>Listen anywhere. Anytime.</p>
 
-          <div className="flex items-center gap-4 mt-24 md:mt-32">
+          <div className="flex items-center gap-4 mt-32 md:mt-40">
             <button
-              onClick={() => scrollTo('about')}
-              className="flex items-center gap-4 bg-gradient-to-r from-[#6B1E23] to-[#2C0F12] text-white font-medium py-4 px-8 md:px-10 rounded-full shadow-[0_20px_30px_rgba(44,15,18,0.45)] border border-white/5 transition transform hover:-translate-y-0.5 animate-fade-up"
-              style={{ animationDelay: '0.6s' }}
+              onClick={() => navigate('/login')}
+              className="flex items-center justify-center gap-3 bg-gradient-to-r from-[#0f4b3a] to-[#2c1212] text-white font-semibold py-4 px-8 md:px-10 rounded-full shadow-lg border border-white/6 transition transform hover:-translate-y-0.5 animate-fade-up"
+              style={{ animationDelay: '0.1s' }}
             >
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#2C0F12] border border-white/8 shadow-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h12" stroke="#F8EDEB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/><path d="M11 6l6 6-6 6" stroke="#F8EDEB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-              </span>
-              Listen Now
+              Start Listening
             </button>
 
-            <button onClick={() => scrollTo('about')} className="text-white/90 underline animate-fade-up" style={{ animationDelay: '0.72s' }}>Learn more</button>
+            <button onClick={() => scrollTo('about')} className="text-white/90 underline animate-fade-up" style={{ animationDelay: '0.72s' }}>Explore Features</button>
           </div>
         </div>
       </section>
 
       {/* Landing content sections for scrolling targets (placeholders) */}
-      <section id="about" className="min-h-screen px-12 py-24 bg-transparent">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">About us</h2>
-        <p className="text-gray-300 text-lg md:text-xl max-w-3xl leading-relaxed">We’re building a new way to experience music. Our platform is designed for listeners who love discovery, quality sound, and beautifully crafted playlists. From trending hits to hidden gems, we help you find music that fits every mood. Whether you’re studying, working, or unwinding, your soundtrack is always just a tap away.</p>
+      <section id="about" className="px-6 md:px-12 py-20 bg-transparent scroll-mt-20 md:scroll-mt-24 mt-24 md:mt-32">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start gap-10">
+          {/* Left content */}
+          <div className="md:w-1/2 lg:w-2/5 md:-ml-10 lg:-ml-30">
+            <p className="text-base md:text-6xl uppercase tracking-wider text-white mb-4">About Us</p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6">We connect listeners with music they love</h2>
+            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">We built Melodex to help listeners discover and enjoy music effortlessly. From trending hits to underground gems, our platform helps you find, stream, and organize playlists tailored to your mood — anytime, anywhere. Join millions who use our app for discovery and high-quality listening.</p>
+
+            <div className="flex items-center gap-4 mt-4">
+              <button className="bg-green-500 text-black font-bold btn-pill">Learn More</button>
+              <button className="flex items-center gap-2 border border-green-400 text-green-400 px-4 py-3 rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-6.518-3.76A1 1 0 007 8.242v7.516a1 1 0 001.234.97l6.518-1.506a1 1 0 00.766-.97V12.14a1 1 0 00-.766-.972z" /></svg>
+                Watch Video
+              </button>
+            </div>
+          </div>
+
+          {/* Divider and stats */}
+          <div className="hidden md:flex items-center">
+            <div className="w-px h-64 bg-white/10 mx-6" />
+          </div>
+
+          <div className="md:w-1/2 lg:w-3/5 flex items-center">
+            <div className="grid grid-cols-2 gap-6 w-full">
+                <div className="plan-card-3d p-6 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white">10M+</div>
+                  <div className="text-sm text-gray-400">Streams Played</div>
+                </div>
+
+                <div className="plan-card-3d p-6 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white">500K+</div>
+                  <div className="text-sm text-gray-400">Active Users</div>
+                </div>
+
+                <div className="plan-card-3d p-6 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white">100K+</div>
+                  <div className="text-sm text-gray-400">Playlists Created</div>
+                </div>
+
+                <div className="plan-card-3d p-6 text-center">
+                  <div className="text-2xl md:text-3xl font-bold text-white">20K+</div>
+                  <div className="text-sm text-gray-400">Artists Hosted</div>
+                </div>
+              </div>
+          </div>
+        </div>
       </section>
 
-      <section id="plans" className="px-6 md:px-12 py-24 bg-transparent">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8">Plans</h2>
-        <p className="text-gray-300 max-w-3xl mb-10">Choose a plan that fits you. Select monthly or one-time payment options and upgrade to Premium for more features.</p>
+      <section id="plans" className="px-6 md:px-12 py-24 bg-transparent scroll-mt-20 md:scroll-mt-24">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 text-center w-full">Plans</h2>
+        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose a plan that fits you. Select monthly or one-time payment options and upgrade to Premium for more features.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Individual */}
-          <div className="rounded-2xl border border-green-900 p-6 bg-black/60">
+          <div className="plan-card-3d p-6">
             <div className="inline-block bg-pink-200 text-pink-900 text-xs px-3 py-1 rounded-full mb-4">LKR 0 for 1 month</div>
             <h3 className="text-2xl font-bold text-white mb-2">Individual</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
@@ -132,13 +152,13 @@ const Landing = () => {
               <li>Subscribe or one-time payment</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="bg-pink-200 text-black font-semibold py-3 rounded-full">Try 1 month for LKR 0</button>
-              <button className="border border-gray-700 text-gray-300 py-2 rounded-full">One-time payment</button>
+              <button className="card-cta-primary">Try 1 month for LKR 0</button>
+              <button className="card-cta-secondary">One-time payment</button>
             </div>
           </div>
 
           {/* Student */}
-          <div className="rounded-2xl border border-green-900 p-6 bg-black/60">
+          <div className="plan-card-3d p-6">
             <div className="inline-block bg-violet-200 text-violet-900 text-xs px-3 py-1 rounded-full mb-4">LKR 0 for 1 month</div>
             <h3 className="text-2xl font-bold text-white mb-2">Student</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
@@ -148,13 +168,13 @@ const Landing = () => {
               <li>Cancel anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="bg-violet-200 text-black font-semibold py-3 rounded-full">Try 1 month for LKR 0</button>
-              <button className="border border-gray-700 text-gray-300 py-2 rounded-full">One-time payment</button>
+              <button className="card-cta-primary">Try 1 month for LKR 0</button>
+              <button className="card-cta-secondary">One-time payment</button>
             </div>
           </div>
 
           {/* Duo */}
-          <div className="rounded-2xl border border-green-900 p-6 bg-black/60">
+          <div className="plan-card-3d p-6">
             <div className="text-xs text-gray-300 mb-4"> </div>
             <h3 className="text-2xl font-bold text-white mb-2">Duo</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 969 / month</p>
@@ -164,14 +184,14 @@ const Landing = () => {
               <li>Subscribe or one-time payment</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="bg-yellow-400 text-black font-semibold py-3 rounded-full">Get Premium Duo</button>
-              <button className="border border-gray-700 text-gray-300 py-2 rounded-full">One-time payment</button>
+              <button className="card-cta-primary">Get Premium Duo</button>
+              <button className="card-cta-secondary">One-time payment</button>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 flex justify-center">
-          <div className="w-full md:w-2/3 lg:w-1/3 rounded-2xl border border-green-900 p-6 bg-black/60">
+          <div className="mt-8 flex justify-center">
+          <div className="w-full md:w-2/3 lg:w-1/3 plan-card-3d p-6">
             <div className="inline-block bg-sky-500 text-white text-xs px-3 py-1 rounded-full mb-4">Premium</div>
             <h3 className="text-2xl font-bold text-white mb-2">Family</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 1,269 / month</p>
@@ -181,34 +201,66 @@ const Landing = () => {
               <li>Cancel anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="bg-white text-black font-semibold py-3 rounded-full">Get Premium Family</button>
-              <button className="border border-gray-700 text-gray-300 py-2 rounded-full">One-time payment</button>
+              <button className="card-cta-primary">Get Premium Family</button>
+              <button className="card-cta-secondary">One-time payment</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="mobile" className="min-h-screen px-12 py-24 bg-transparent">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Mobile</h2>
-        <p className="text-gray-300 text-lg max-w-3xl mb-8">Bring music on the go. Try our app on wearable devices — here are a couple of highlights.</p>
-
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-          <img src={watchImg} alt="Watch" className="w-56 md:w-72 rounded-lg shadow-lg" />
-          <img src={watchSong} alt="Watch with song" className="w-56 md:w-72 rounded-lg shadow-lg" />
+      <div className="py-16 px-6 md:px-12">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+          <img ref={watchImgRef} src={watchImg} alt="Watch" className="w-80 md:w-96 rounded-lg shadow-lg fade-in" />
+          <img ref={watchSongRef} src={watchSong} alt="Watch with song" className="w-80 md:w-96 rounded-lg shadow-lg fade-in" />
         </div>
-      </section>
+      </div>
 
-      <section id="contact" className="min-h-screen px-12 py-24 bg-transparent">
-        <p className="text-sm text-gray-400 mb-4">Contact</p>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6">Send a message</h2>
+      <section id="contact" className="px-6 md:px-12 py-20 bg-transparent scroll-mt-20 md:scroll-mt-24">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center mb-4">Contact Us</h2>
+          <p className="text-gray-300 text-base md:text-lg text-center max-w-2xl mx-auto mb-10">Need help with your account, playlists, or subscriptions? Our support team is here to help — reach out anytime and we'll get back to you as soon as possible.</p>
 
-        <p className="text-gray-300 max-w-3xl mb-8">If you message an advisor, response times throughout the conversation are usually a few minutes. You can reply back to the advisor at your convenience.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+            {/* Form column */}
+            <div>
+              <form className="space-y-4">
+                <input type="text" placeholder="Name" className="w-full rounded-lg border border-gray-200 bg-white/5 px-4 py-3 text-gray-100" />
+                <input type="email" placeholder="Email" className="w-full rounded-lg border border-gray-200 bg-white/5 px-4 py-3 text-gray-100" />
+                <input type="text" placeholder="Subject" className="w-full rounded-lg border border-gray-200 bg-white/5 px-4 py-3 text-gray-100" />
+                <textarea placeholder="Message" rows={6} className="w-full rounded-lg border border-gray-200 bg-white/5 px-4 py-3 text-gray-100" />
 
-        <div className="mb-6">
-          <button onClick={() => navigate('/contact')} className="bg-green-500 hover:bg-green-400 text-black font-semibold px-8 py-4 rounded-full shadow-md">Start messaging</button>
+                <button type="submit" className="mt-3 inline-flex items-center gap-3 bg-gradient-to-r from-[#8b2e2e] to-[#0f6b3a] text-white font-semibold px-6 py-3 rounded-full shadow-lg">Send Message</button>
+              </form>
+              <p className="text-gray-400 text-sm mt-4">Information you submit will be used to respond to your enquiry and as described in our <span className="text-green-400 underline">Privacy Policy</span>.</p>
+            </div>
+
+            {/* Map column */}
+            <div className="relative">
+              <img src={worldMap} alt="World map" className="w-full h-auto rounded-md  transform scale-105 md:scale-110 lg:scale-125" />
+
+              {/* Example pins with labels - positioned with percentages to match wireframe */}
+                <div className="absolute" style={{ left: '28%', top: '36%' }} aria-hidden>
+                  <div className="w-3 h-3 bg-cyan-400 rounded-full shadow" />
+                </div>
+
+              <div className="absolute" style={{ left: '45%', top: '18%' }} aria-hidden>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full shadow" />
+              </div>
+
+              <div className="absolute" style={{ left: '60%', top: '52%' }} aria-hidden>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full shadow" />
+              </div>
+
+              <div className="absolute" style={{ left: '34%', top: '66%' }} aria-hidden>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full shadow" />
+              </div>
+
+              <div className="absolute" style={{ left: '82%', top: '68%' }} aria-hidden>
+                <div className="w-3 h-3 bg-cyan-400 rounded-full shadow" />
+              </div>
+            </div>
+          </div>
         </div>
-
-        <p className="text-gray-400 max-w-3xl">Information you submit will be used to respond to your enquiry, and as otherwise described in our <span className="text-green-400 underline">Privacy Policy</span>.</p>
       </section>
     </div>
   )
