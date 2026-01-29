@@ -132,3 +132,104 @@
   display: inline-block;
   white-space: nowrap;
 }
+
+/* Water-wave animated gradient for hero text */
+.water-wave {
+	background: linear-gradient(90deg, #83f0ff 10%, #1db954 30%, #80e6b6 50%, #a7f7ff 70%);
+	background-size: 200% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	animation: waveBg 2800ms linear infinite;
+}
+
+@keyframes waveBg {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* Pill-style button used for prominent CTAs (keeps background color set inline) */
+.btn-pill {
+	border-radius: 9999px;
+	padding: 0.75rem 2rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid rgba(255,255,255,0.06);
+	box-shadow: 0 18px 30px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.03);
+	transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+.btn-pill:active {
+	transform: translateY(1px);
+}
+.btn-pill:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 22px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* 3D plan card look: deep shadow, soft highlight, subtle border */
+.plan-card-3d {
+	border-radius: 1rem;
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.45));
+	border: 1px solid rgba(255,255,255,0.04);
+	box-shadow: 0 28px 50px rgba(2,6,23,0.75), 0 8px 18px rgba(0,0,0,0.6);
+	position: relative;
+	overflow: hidden;
+	transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease;
+}
+.plan-card-3d::before {
+	content: '';
+	position: absolute;
+	left: -20%;
+	top: -40%;
+	width: 160%;
+	height: 80%;
+	background: linear-gradient(120deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+	transform: rotate(-12deg);
+	pointer-events: none;
+}
+.plan-card-3d:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 40px 80px rgba(2,6,23,0.8), 0 12px 30px rgba(0,0,0,0.65);
+}
+
+/* Card CTA styles to match the attached design */
+.card-cta-primary {
+	background: #ffffff;
+	color: #000000;
+	border-radius: 9999px;
+	padding: 0.95rem 1rem;
+	font-weight: 600;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 10px 22px rgba(2,6,23,0.45), inset 0 -6px 18px rgba(0,0,0,0.06);
+}
+.card-cta-primary:active { transform: translateY(1px); }
+.card-cta-primary:hover { box-shadow: 0 16px 36px rgba(2,6,23,0.55), inset 0 -6px 18px rgba(0,0,0,0.06); }
+
+.card-cta-secondary {
+	background: transparent;
+	color: rgba(255,255,255,0.85);
+	border-radius: 9999px;
+	padding: 0.75rem 1rem;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	border: 1px solid rgba(255,255,255,0.06);
+}
+.card-cta-secondary:hover { border-color: rgba(255,255,255,0.12); }
+
+
+/* Ensure all headings inside the landing page use the same font-family */
+.landing-headings h1,
+.landing-headings h2,
+.landing-headings h3,
+.landing-headings h4,
+.landing-headings h5,
+.landing-headings h6 {
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+
