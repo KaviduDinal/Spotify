@@ -70,7 +70,7 @@ const Signup = () => {
 
       <div className="relative z-10 w-[440px] rounded-2xl bg-black/70 px-10 py-12 text-white">
 
-        {/* top avatars removed to keep animated circles behind the card */}
+        {/* top avatars  removed to keep animated circles behind the card */}
 
         <h2 className="text-3xl font-bold text-center mt-8 mb-8">
           Sign Up
