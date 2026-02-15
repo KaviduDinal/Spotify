@@ -116,7 +116,7 @@ const Signup = () => {
             className="w-full py-3 bg-transparent border border-gray-500 text-white rounded-full font-semibold text-base hover:border-gray-400 transition flex items-center justify-center gap-3"
           >
             <img src={google} alt="Google" className="w-5 h-5" />
-            Continue with Google
+            Continue with Google.
           </button>
 
           <button
