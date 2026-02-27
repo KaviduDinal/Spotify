@@ -70,7 +70,7 @@ const Signup = () => {
 
       <div className="relative z-10 w-[440px] rounded-2xl bg-black/70 px-10 py-12 text-white">
 
-        {/* top avatars removed to keep animated circles behind the card */}
+        {/* top avatars  removed to keep animated circles behind the card */}
 
         <h2 className="text-3xl font-bold text-center mt-8 mb-8">
           Sign Up
@@ -105,7 +105,7 @@ const Signup = () => {
 
         <button
           onClick={handleSignup}
-          className="w-full py-3 bg-[#1DB954] text-black rounded-full font-semibold text-lg hover:opacity-90 transition"
+          className="w-full py-3 bg-gradient-to-r from-[#6B1E23] to-[#2C0F12] text-white rounded-full font-semibold text-lg hover:shadow-lg transition shadow-[0_18px_26px_rgba(44,15,18,0.45)] border border-white/5"
         >
           Sign Up
         </button>
