@@ -1,23 +1,32 @@
-import React from 'react'
-import Sidebar from './Components/Sidebar'
-import Display from './Components/Display'
-import Player from './Components/Player'
-import { useContext } from 'react'
-import PlayerContext from './Components/PlayerContext'
+import { Routes, Route, Navigate } from "react-router-dom"
+import Login from "./Auth/Login"
+import Signup from "./Auth/Signup"
+import ProtectedRoute from "./Auth/ProtectedRoute"
+import Home from "./Components/Home"
+import Landing from "./Components/Landing"
 
 const App = () => {
-
-  const {audioRef,track} = useContext(PlayerContext);
   return (
-<div className='h-screen bg-black'>
-  
-  <div className='h-[90%] flex'>
-    <Sidebar/>
-    <Display/>
-  </div>
-  <Player /> 
-  <audio ref={audioRef} src={track.file} preload='auto'></audio>
-</div>
+    <Routes>
+
+      {/* Landing page */}
+      <Route path="/" element={<Landing />} />
+
+      {/* Auth pages */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+
+      {/* Protected Home with nested routes */}
+      <Route
+        path="/home/*"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+
+    </Routes>
   )
 }
 

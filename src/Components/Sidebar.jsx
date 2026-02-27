@@ -1,11 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+import { auth } from '../Auth/firebase'
 import * as assetsModule from '../assets/assets'
+import { useSearchModal } from './SearchModalContext'
 const assets = (assetsModule && (assetsModule.assets ?? assetsModule.default ?? assetsModule)) || {}
 
 const Sidebar = () => {
 
   const navigate = useNavigate();
+  const { openSearch } = useSearchModal()
+  const handleLogout = async () => {
+    await signOut(auth)
+    navigate('/login')
+  }
   return (
     <div className="w-[250px] h-screen p-4 flex flex-col gap-4 text-white bg-black">
 
@@ -16,17 +24,19 @@ const Sidebar = () => {
           <p className="font-bold text-sm">Home</p>
         </div>
 
-        <div className="flex items-center gap-3 cursor-pointer">
+        <div onClick={openSearch} className="flex items-center gap-3 cursor-pointer">
           <img src={assets?.search_icon ?? ''} alt="Search" className="w-5 h-5" />
           <p className="font-bold text-sm">Search</p>
         </div>
 
         {/* Explore Premium CTA at bottom */}
-        <div className="mt-auto">
-          <div onClick={() => navigate('/premium')} className="px-3 py-2 bg-gradient-to-r from-[#1DB954] to-[#1ed760] text-black rounded-full font-semibold text-sm cursor-pointer hover:opacity-90 text-center">
-            Explore Premium
-          </div>
-        </div>
+        <div
+  onClick={() => navigate('/home/premium')}
+  className="px-3 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-full font-semibold text-sm cursor-pointer hover:opacity-90 transition text-center"
+>
+  Explore Premium
+</div>
+
       </div>
 
       {/* Box 2 - fill remaining sidebar height and scroll if needed */}
@@ -57,7 +67,15 @@ const Sidebar = () => {
           <button className="px-3 py-1 bg-white text-xs font-medium text-black rounded-full mt-1 hover:bg-gray-200 transition">
             Browse Podcasts
           </button>
+                  
         </div>
+          {/* Logout */}
+          <button
+            onClick={handleLogout}
+            className='px-3 py-1 bg-red-600 text-white rounded-full text-sm hover:opacity-90'
+          >
+            Logout
+          </button>
       </div>
     </div>
   )
