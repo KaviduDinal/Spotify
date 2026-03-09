@@ -12,7 +12,7 @@ The **Spotify Music Platform** is a web-based music streaming application that a
 - **Modern UI** using CSS modules and custom styling for a clean look.
 - **Lightweight and Fast** thanks to Vite as the build tool.
 
----
+--
 
 ## Project Structure
 
