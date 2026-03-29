@@ -34,7 +34,7 @@ const Displayalbum = () => {
                         <img className='inline-block w-5 mr-2' src={assets.spotify_logo} alt="" />
                         <b>Spotify</b>
                         <span className='mx-2'>●</span>
-                        1,231,592 likes
+                        1,231,592 Likes
                         <span className='mx-2'>●</span>
                         <b>100 songs,</b>
                         <span className='ml-2'>about 7 hr 40 min</span>
