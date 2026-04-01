@@ -37,7 +37,7 @@ const Displayalbum = () => {
                         1,231,592 Likes
                         <span className='mx-2'>●</span>
                         <b>100 songs,</b>
-                        <span className='ml-2'>About 7 hr 40 min</span>
+                        <span className='ml-2'>About 7 Hr 40 min</span>
                     </p>
                 </div>
             </div>
