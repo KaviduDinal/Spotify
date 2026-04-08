@@ -13,7 +13,7 @@ const Displayalbum = () => {
         return (
             <>
                 <Navbar />
-                <div className="p-8 text-white">Album Not found.</div>
+                <div className="p-8 text-white">Album not found.</div>
             </>
         )
     }
