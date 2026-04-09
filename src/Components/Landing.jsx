@@ -113,7 +113,7 @@ const Landing = () => {
           <div className="md:w-1/2 lg:w-3/5 flex items-center">
             <div className="grid grid-cols-2 gap-6 w-full">
                 <div className="plan-card-3d p-6 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white">10M+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white">20M+</div>
                   <div className="text-sm text-gray-400">Streams Played</div>
                 </div>
 
