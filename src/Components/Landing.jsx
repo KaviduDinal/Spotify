@@ -194,7 +194,7 @@ const Landing = () => {
           <div className="w-full md:w-2/3 lg:w-1/3 plan-card-3d p-6">
             <div className="inline-block bg-sky-500 text-white text-xs px-3 py-1 rounded-full mb-4">Premium</div>
             <h3 className="text-2xl font-bold text-white mb-2">Family</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 1,429 / month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 1,429 / Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>Up to 6 Premium Accounts</li>
               <li>Parental controls for the plan manager</li>
