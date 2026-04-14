@@ -180,7 +180,7 @@ const Landing = () => {
             <p className="text-sm text-gray-400 mb-4">LKR 969 / Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>2 Premium accounts</li>
-              <li>Cancel anytime</li>
+              <li>Cancel Anytime</li>
               <li>Subscribe or one-time payment</li>
             </ul>
             <div className="flex flex-col gap-3">
