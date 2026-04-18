@@ -198,7 +198,7 @@ const Landing = () => {
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>Up to 6 Premium Accounts</li>
               <li>Parental controls for the plan manager</li>
-              <li>Cancel anytime</li>
+              <li>Cancel Anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Get Premium Family</button>
