@@ -165,7 +165,7 @@ const Landing = () => {
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>1 Verified Premium Account</li>
               <li>Discount For Eligible Students</li>
-              <li>Cancel anytime</li>
+              <li>Cancel Anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Try 1 Month For LKR 0</button>
