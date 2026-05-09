@@ -153,7 +153,8 @@ const Landing = () => {
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Try 1 month for LKR 0</button>
-              <button className="card-cta-secondary">One-time payment</button>
+              <button className="card-cta-secondary">O
+                ne-time payment</button>
             </div>
           </div>
 
@@ -161,7 +162,7 @@ const Landing = () => {
           <div className="plan-card-3d p-6">
             <div className="inline-block bg-violet-200 text-violet-900 text-xs px-3 py-1 rounded-full mb-4">LKR 0 for 1 month</div>
             <h3 className="text-2xl font-bold text-white mb-2">Student</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 0 For 1 Month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>1 Verified Premium Account</li>
               <li>Discount For Eligible Students</li>
