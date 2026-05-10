@@ -153,8 +153,7 @@ const Landing = () => {
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Try 1 month for LKR 0</button>
-              <button className="card-cta-secondary">O
-                ne-time payment</button>
+              <button className="card-cta-secondary">One-Time payment</button>
             </div>
           </div>
 
