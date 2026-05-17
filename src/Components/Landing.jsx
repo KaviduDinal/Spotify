@@ -149,7 +149,7 @@ const Landing = () => {
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>1 Premium account</li>
               <li>Cancel Anytime</li>
-              <li>Subscribe Or One-Time payment</li>
+              <li>Subscribe Or One-Time Payment</li>
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Try 1 Month For LKR 0</button>
