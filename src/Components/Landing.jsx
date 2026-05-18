@@ -147,7 +147,7 @@ const Landing = () => {
             <h3 className="text-2xl font-bold text-white mb-2">Individual</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
-              <li>1 Premium account</li>
+              <li>1 Premium Account</li>
               <li>Cancel Anytime</li>
               <li>Subscribe Or One-Time Payment</li>
             </ul>
