@@ -145,7 +145,7 @@ const Landing = () => {
           <div className="plan-card-3d p-6">
             <div className="inline-block bg-pink-200 text-pink-900 text-xs px-3 py-1 rounded-full mb-4">LKR 0 for 1 month</div>
             <h3 className="text-2xl font-bold text-white mb-2">Individual</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 0 For 1 month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 0 For 1 Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>1 Premium Account</li>
               <li>Cancel Anytime</li>
