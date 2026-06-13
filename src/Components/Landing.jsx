@@ -138,7 +138,7 @@ const Landing = () => {
 
       <section id="plans" className="px-6 md:px-12 py-24 bg-transparent scroll-mt-20 md:scroll-mt-24">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 text-center w-full">Plans</h2>
-        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose A Plan That Fits You. Select Monthly Or One-Time Payment Options And Upgrade To Premium for more features.</p>
+        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose A Plan That Fits You. Select Monthly Or One-Time Payment Options And Upgrade To Premium For more features.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Individual */}
