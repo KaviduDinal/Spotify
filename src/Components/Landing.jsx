@@ -94,7 +94,7 @@ const Landing = () => {
           <div className="md:w-1/2 lg:w-2/5 md:-ml-10 lg:-ml-30">
             <p className="text-base md:text-6xl uppercase tracking-wider text-white mb-4">About Us</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6">We connect listeners with music they love</h2>
-            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">We built Melodex to Help Listeners Discover And enjoy music effortlessly. From trending hits to underground gems, our platform helps you find, stream, and organize playlists tailored to your mood — anytime, anywhere. Join millions who use our app for discovery and high-quality listening.</p>
+            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">We built Melodex to Help Listeners Discover And Enjoy music effortlessly. From trending hits to underground gems, our platform helps you find, stream, and organize playlists tailored to your mood — anytime, anywhere. Join millions who use our app for discovery and high-quality listening.</p>
 
             <div className="flex items-center gap-4 mt-4">
               <button className="bg-green-500 text-black font-bold btn-pill">Learn More</button>
