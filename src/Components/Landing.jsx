@@ -153,7 +153,7 @@ const Landing = () => {
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Try 1 month for LKR 0</button>
-              <button className="card-cta-secondary">One-time payment</button>
+              <button className="card-cta-secondary">One-Time Payment</button>
             </div>
           </div>
 
@@ -163,13 +163,13 @@ const Landing = () => {
             <h3 className="text-2xl font-bold text-white mb-2">Student</h3>
             <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
-              <li>1 verified Premium account</li>
-              <li>Discount for eligible students</li>
-              <li>Cancel anytime</li>
+              <li>1 Verified Premium Account</li>
+              <li>Discount For Eligible Students</li>
+              <li>Cancel Anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="card-cta-primary">Try 1 month for LKR 0</button>
-              <button className="card-cta-secondary">One-time payment</button>
+              <button className="card-cta-primary">Try 1 Month For LKR 0</button>
+              <button className="card-cta-secondary">One-Time Payment</button>
             </div>
           </div>
 
@@ -197,12 +197,12 @@ const Landing = () => {
             <p className="text-sm text-gray-400 mb-4">LKR 1,429 / Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>Up to 6 Premium Accounts</li>
-              <li>Parental controls for the plan manager</li>
-              <li>Cancel anytime</li>
+              <li>Parental Controls For The Plan Manager</li>
+              <li>Cancel Anytime</li>
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Get Premium Family</button>
-              <button className="card-cta-secondary">One-time payment</button>
+              <button className="card-cta-secondary">One-Time Payment</button>
             </div>
           </div>
         </div>
