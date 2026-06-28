@@ -138,21 +138,21 @@ const Landing = () => {
 
       <section id="plans" className="px-6 md:px-12 py-24 bg-transparent scroll-mt-20 md:scroll-mt-24">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 text-center w-full">Plans</h2>
-        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose a plan that fits you. Select monthly or one-time payment options and upgrade to Premium for more features.</p>
+        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose A Plan That Fits You. Select Monthly Or One-Time Payment Options and upgrade to Premium for more features.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Individual */}
           <div className="plan-card-3d p-6">
             <div className="inline-block bg-pink-200 text-pink-900 text-xs px-3 py-1 rounded-full mb-4">LKR 0 for 1 month</div>
             <h3 className="text-2xl font-bold text-white mb-2">Individual</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 0 For 1 Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
-              <li>1 Premium account</li>
+              <li>1 Premium Account</li>
               <li>Cancel Anytime</li>
-              <li>Subscribe or one-time payment</li>
+              <li>Subscribe Or One-Time Payment</li>
             </ul>
             <div className="flex flex-col gap-3">
-              <button className="card-cta-primary">Try 1 month for LKR 0</button>
+              <button className="card-cta-primary">Try 1 Month For LKR 0</button>
               <button className="card-cta-secondary">One-Time Payment</button>
             </div>
           </div>
