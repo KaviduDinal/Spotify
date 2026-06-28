@@ -94,7 +94,7 @@ const Landing = () => {
           <div className="md:w-1/2 lg:w-2/5 md:-ml-10 lg:-ml-30">
             <p className="text-base md:text-6xl uppercase tracking-wider text-white mb-4">About Us</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-6">We connect listeners with music they love</h2>
-            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">We built Melodex to help listeners discover and enjoy music effortlessly. From trending hits to underground gems, our platform helps you find, stream, and organize playlists tailored to your mood — anytime, anywhere. Join millions who use our app for discovery and high-quality listening.</p>
+            <p className="text-gray-300 text-base md:text-lg mb-6 leading-relaxed">We built Melodex to Help Listeners Discover And Enjoy Music Effortlessly. From Trending Hits to Underground Gems, Our platform helps you find, stream, and organize playlists tailored to your mood — anytime, anywhere. Join millions who use our app for discovery and high-quality listening.</p>
 
             <div className="flex items-center gap-4 mt-4">
               <button className="bg-green-500 text-black font-bold btn-pill">Learn More</button>
@@ -138,7 +138,7 @@ const Landing = () => {
 
       <section id="plans" className="px-6 md:px-12 py-24 bg-transparent scroll-mt-20 md:scroll-mt-24">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 text-center w-full">Plans</h2>
-        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose A Plan That Fits You. Select Monthly Or One-Time Payment Options and upgrade to Premium for more features.</p>
+        <p className="text-gray-300 max-w-3xl mx-auto text-center mb-10">Choose A Plan That Fits You. Select Monthly Or One-Time Payment Options And Upgrade To Premium For More Features.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Individual */}
