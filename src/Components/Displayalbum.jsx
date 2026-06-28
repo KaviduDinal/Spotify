@@ -44,7 +44,7 @@ const Displayalbum = () => {
             <div className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 mt-10 mb-4 pl-2 text-[#a7a7a7] items-center'>
                 <div className='flex items-center'><b className='mr-4'>#</b>Title</div>
                 <div className='hidden sm:flex items-center'>Album</div>
-                <div className='hidden sm:block text-right'>Date Added </div>
+                <div className='hidden sm:block text-right'>Date Addedd </div>
                 <div className='flex justify-center sm:justify-end'><img className='w-4' src={assets.clock_icon} alt="" /></div>
             </div>
 
