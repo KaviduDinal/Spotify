@@ -113,7 +113,7 @@ const Landing = () => {
           <div className="md:w-1/2 lg:w-3/5 flex items-center">
             <div className="grid grid-cols-2 gap-6 w-full">
                 <div className="plan-card-3d p-6 text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white">10M+</div>
+                  <div className="text-2xl md:text-3xl font-bold text-white">20M+</div>
                   <div className="text-sm text-gray-400">Streams Played</div>
                 </div>
 
@@ -148,7 +148,7 @@ const Landing = () => {
             <p className="text-sm text-gray-400 mb-4">LKR 0 for 1 month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
               <li>1 Premium account</li>
-              <li>Cancel anytime</li>
+              <li>Cancel Anytime</li>
               <li>Subscribe or one-time payment</li>
             </ul>
             <div className="flex flex-col gap-3">
@@ -177,15 +177,15 @@ const Landing = () => {
           <div className="plan-card-3d p-6">
             <div className="text-xs text-gray-300 mb-4"> </div>
             <h3 className="text-2xl font-bold text-white mb-2">Duo</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 969 / month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 969 / Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
-              <li>2 Premium accounts</li>
-              <li>Cancel anytime</li>
+              <li>2 Premium Accounts</li>
+              <li>Cancel Anytime</li>
               <li>Subscribe or one-time payment</li>
             </ul>
             <div className="flex flex-col gap-3">
               <button className="card-cta-primary">Get Premium Duo</button>
-              <button className="card-cta-secondary">One-time payment</button>
+              <button className="card-cta-secondary">One-Time Payment</button>
             </div>
           </div>
         </div>
@@ -194,9 +194,9 @@ const Landing = () => {
           <div className="w-full md:w-2/3 lg:w-1/3 plan-card-3d p-6">
             <div className="inline-block bg-sky-500 text-white text-xs px-3 py-1 rounded-full mb-4">Premium</div>
             <h3 className="text-2xl font-bold text-white mb-2">Family</h3>
-            <p className="text-sm text-gray-400 mb-4">LKR 1,269 / month</p>
+            <p className="text-sm text-gray-400 mb-4">LKR 1,429 / Month</p>
             <ul className="text-gray-400 text-sm mb-6 space-y-2">
-              <li>Up to 6 Premium accounts</li>
+              <li>Up to 6 Premium Accounts</li>
               <li>Parental controls for the plan manager</li>
               <li>Cancel anytime</li>
             </ul>
