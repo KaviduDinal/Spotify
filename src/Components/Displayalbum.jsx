@@ -13,7 +13,7 @@ const Displayalbum = () => {
         return (
             <>
                 <Navbar />
-                <div className="p-8 text-white">Album Not Found.</div>
+                <div className="p-8 text-white">Album not found.</div>
             </>
         )
     }
@@ -34,9 +34,9 @@ const Displayalbum = () => {
                         <img className='inline-block w-5 mr-2' src={assets.spotify_logo} alt="" />
                         <b>Spotify</b>
                         <span className='mx-2'>●</span>
-                        1,231,592 Likes
+                        2,221,592 Likes
                         <span className='mx-2'>●</span>
-                        <b>100 songs,</b>
+                        <b>100 Songs,</b>
                         <span className='ml-2'>About 7 Hr 40 Min</span>
                     </p>
                 </div>
