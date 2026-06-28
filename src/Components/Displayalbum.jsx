@@ -13,7 +13,7 @@ const Displayalbum = () => {
         return (
             <>
                 <Navbar />
-                <div className="p-8 text-white">Album Not found.</div>
+                <div className="p-8 text-white">Album Not Found.</div>
             </>
         )
     }
@@ -34,17 +34,17 @@ const Displayalbum = () => {
                         <img className='inline-block w-5 mr-2' src={assets.spotify_logo} alt="" />
                         <b>Spotify</b>
                         <span className='mx-2'>●</span>
-                        1,231,594 likes
+                        1,231,592 Likes
                         <span className='mx-2'>●</span>
                         <b>100 songs,</b>
-                        <span className='ml-2'>about 7 hr 40 min</span>
+                        <span className='ml-2'>About 7 Hr 40 Min</span>
                     </p>
                 </div>
             </div>
             <div className='grid grid-cols-3 sm:grid-cols-[auto_1fr_200px_80px] gap-x-6 mt-10 mb-4 pl-2 text-[#a7a7a7] items-center'>
                 <div className='flex items-center'><b className='mr-4'>#</b>Title</div>
                 <div className='hidden sm:flex items-center'>Album</div>
-                <div className='hidden sm:block text-right'>Date Added.</div>
+                <div className='hidden sm:block text-right'>Date Added</div>
                 <div className='flex justify-center sm:justify-end'><img className='w-4' src={assets.clock_icon} alt="" /></div>
             </div>
 
